@@ -19,6 +19,14 @@ export default class PageSection {
     return cy.get("button").contains("Publish");
   }
 
+  get editorUpdateDropdown() {
+    return cy.get("div[role='button']").contains("Update");
+  }
+
+  get editorUpdateButton() {
+    return cy.get("button").contains("Update");
+  }
+
   get editorSettingsButton() {
     return cy.get("button[title='Settings']");
   }
