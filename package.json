@@ -1,0 +1,22 @@
+{
+  "name": "pruebas_e2e_cypress",
+  "version": "1.0.0",
+  "description": "Pruebas E2E Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Molvilada/Pruebas_E2E_Cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Molvilada/Pruebas_E2E_Cypress/issues"
+  },
+  "homepage": "https://github.com/Molvilada/Pruebas_E2E_Cypress#readme",
+  "devDependencies": {
+    "cypress": "^12.11.0"
+  }
+}
