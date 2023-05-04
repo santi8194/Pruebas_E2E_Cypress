@@ -8,8 +8,8 @@ const pageSection = new PageSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Publicación de una página nueva y validación de disponibilidad en la aplicación.", () => {
-  it("Publicación de una página nueva y validación de disponibilidad en la aplicación.", () => {
+describe("Edición del título de una página existente y validación de cambios en la aplicación.", () => {
+  it("Edición del título de una página existente y validación de cambios en la aplicación.", () => {
     /* 
     -------------
       GIVEN
@@ -23,13 +23,7 @@ describe("Publicación de una página nueva y validación de disponibilidad en l
     adminMenu.pageTab.click();
     cy.wait(1000);
 
-    /* 
-    -------------
-      WHEN
-    -------------
-    */
-
-    // Crea la página
+    // Crea la página a editar
     const title = faker.lorem.lines(1);
     const content = faker.lorem.paragraphs(1);
 
@@ -37,6 +31,23 @@ describe("Publicación de una página nueva y validación de disponibilidad en l
 
     // Publica la página
     pageSection.publishPage();
+    pageSection.goBackToPagesSection.click();
+
+    /* 
+    -------------
+      WHEN
+    -------------
+    */
+
+    // Selecciona la página a editar
+    pageSection.pageInList(title).click();
+
+    // Edita el titulo
+    const newTitle = faker.lorem.lines(1);
+    pageSection.editorContainerTitle.clear().type(newTitle);
+    pageSection.editorUpdateDropdown.click();
+    pageSection.editorUpdateButton.click();
+    cy.wait(3000);
 
     /* 
     -------------
@@ -44,16 +55,16 @@ describe("Publicación de una página nueva y validación de disponibilidad en l
     -------------
     */
 
-    // Verifica que la página aparezca en la lista de páginas
+    // Verifica que la página aparezca en la lista de páginas con el nuevo título
     pageSection.goBackToPagesSection.click();
-    pageSection.pageInList(title).click();
+    pageSection.pageInList(newTitle).click();
 
-    // Verifica que la página aparezca visible en el sitio
+    // Verifica que la página aparezca visible en el sitio con el nuevo título
     pageSection.editorSettingsButton.click();
     pageSection.editorViewPage.invoke("attr", "href").then((href) => {
       cy.visit(href);
     });
     cy.wait(1000);
-    site.pageTitle.contains(title);
+    site.pageTitle.contains(newTitle);
   });
 });
