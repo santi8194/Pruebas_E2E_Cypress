@@ -3,10 +3,6 @@ export default class PageSection {
     return cy.get("a").contains("New page");
   }
 
-  pageInList(title) {
-    return cy.get(".gh-list-row.gh-posts-list-item").contains(title);
-  }
-
   get editorContainerTitle() {
     return cy.get("textarea[placeholder='Page Title']");
   }
@@ -33,5 +29,25 @@ export default class PageSection {
 
   get goBackToPagesSection() {
     return cy.get("a").contains("Pages");
+  }
+
+  pageInList(title) {
+    return cy
+      .get("li.gh-list-row.gh-posts-list-item")
+      .filter(`:contains(${title})`)
+      .first();
+  }
+
+  publishPage() {
+    this.editorPublishDropdown.click();
+    this.editorPublishButton.click();
+    cy.wait(3000);
+  }
+
+  createPage(title, content) {
+    this.newPageButton.click();
+    cy.wait(1000);
+    this.editorContainerTitle.type(title);
+    this.editorContainerBody.type(content);
   }
 }
