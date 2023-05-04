@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Molvilada/Pruebas_E2E_Cypress#readme",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "cypress": "^12.11.0"
   }
 }
