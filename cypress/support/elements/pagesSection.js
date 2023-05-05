@@ -31,6 +31,14 @@ export default class PageSection {
     return cy.get("button[title='Settings']");
   }
 
+  get editorDeletePageButton() {
+    return cy.get("button").contains("Delete page");
+  }
+
+  get modalDeleteButton() {
+    return cy.get("button.gh-btn-red").contains("Delete");
+  }
+
   get editorViewPage() {
     return cy.get("a.post-view-link");
   }
@@ -44,6 +52,13 @@ export default class PageSection {
       .get("li.gh-list-row.gh-posts-list-item")
       .filter(`:contains(${title})`)
       .first();
+  }
+
+  notPageInList(title) {
+    return cy
+      .get("li.gh-list-row.gh-posts-list-item")
+      .filter(`:contains(${title})`)
+      .should("not.exist");
   }
 
   publishPage() {
