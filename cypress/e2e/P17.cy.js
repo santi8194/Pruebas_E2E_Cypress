@@ -19,5 +19,14 @@ describe("Cambiar rol de usuario", () => {
         // Seleccionar usuario de Ghost
         staffSection.ghostStaffMember.click();
         cy.wait(1000);
+        /*
+    -------------
+      WHEN
+    -------------
+    */
+        // Dar clic en el desplegable de Roles y seleccionar 'Contributor'
+        staffSection.obtainRoleOptions.select('Contributor');
+        // Guardar Cambios
+        staffSection.saveChanges.click();
     })
 })
