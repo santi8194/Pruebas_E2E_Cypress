@@ -3,7 +3,15 @@ export default class Site {
     return cy.get("h1.post-full-title");
   }
 
+  get postTitle() {
+    return cy.get("h1.post-full-title");
+  }
+
   get pageContent() {
+    return cy.get("section.post-full-content");
+  }
+
+  get postContent() {
     return cy.get("section.post-full-content");
   }
 
