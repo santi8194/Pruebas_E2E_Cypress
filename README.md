@@ -12,8 +12,8 @@
           e2e: {
               baseUrl: "http://localhost:2368/ghost/",
               env: {
-                  username: "c.ramirezr2@uniandes.edu.co",
-                  password: "CarlosNancy98",
+                  username: "user@onemail.con",
+                  password: "Pa55w0rd",
                },
               ...
            },
