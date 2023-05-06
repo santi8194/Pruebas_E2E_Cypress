@@ -43,5 +43,13 @@ describe("Editar usuario para quitar suspensión.", () => {
         staffSection.ClickInUnSuspendStaffMember.click();
         cy.wait(1000);
         staffSection.unSuspendStaffMember.click();
+        /*
+    -------------
+      THEN
+    -------------
+    */
+        //Verificar que usuario esté activo
+        cy.wait(1000);
+        staffSection.verifyUnsuspendedMember;
     })
 })

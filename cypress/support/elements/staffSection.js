@@ -17,4 +17,10 @@ export default class StaffSection {
     get unSuspendStaffMember() {
         return cy.get("button").contains("Un-suspend");
     }
+    get verifyUnsuspendedMember() {
+        return cy
+            .get("span")
+            .contains("Suspended")
+            .should("not.exist");
+    }
 }
