@@ -19,6 +19,15 @@ export default class TagSection {
         return cy.get('#tag-description');
     }
 
+    get editorDeleteTagButton() {
+      return cy.get("button").contains("Delete tag");
+    }
+  
+    get modalDeleteTagButton() {
+      return cy.get("button.gh-btn-red").contains("Delete", {force: true});
+    }
+  
+
     tagInList(title) {
         return cy
           .get("li.gh-list-row.gh-tags-list-item")
