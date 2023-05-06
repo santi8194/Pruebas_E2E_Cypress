@@ -1,5 +1,5 @@
 export default class TagSection {
-    get newPageButton() {
+    get newTagButton() {
       return cy.get("a").contains("New tag");
     }
 
@@ -19,19 +19,25 @@ export default class TagSection {
         return cy.get('#tag-description');
     }
 
-    pageInList(title) {
+    tagInList(title) {
         return cy
           .get("li.gh-list-row.gh-tags-list-item")
           .filter(`:contains(${title})`)
           .first();
       }
   
-    createPage(title, slug , content) {
-      this.newPageButton.click();
+    createTag(title, slug , content) {
+      this.newTagButton.click();
       cy.wait(1000);
       this.editorContainerTitle.type(title);
       this.editorContainerSlug.type(slug);
       this.editorContainerDescription.type(content);
     }
+
+    updateTag(title) {
+      this.editorContainerTitle.clear().type(title, {force: true});
+    }
+
+    
   }
   
