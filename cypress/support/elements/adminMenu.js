@@ -14,12 +14,4 @@ export default class AdminMenu {
   get tagTab() {
     return cy.get("a").contains("Tags");
   }
-
-<<<<<<< HEAD
-=======
-  get staffTab() {
-    return cy.get("a").contains("Staff");
-  }
->>>>>>> feature/P14
-
 }
