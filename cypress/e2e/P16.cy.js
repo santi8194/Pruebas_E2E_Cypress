@@ -29,5 +29,19 @@ describe("Editar usuario para quitar suspensión.", () => {
         // Volver a la pestaña Staff
         adminMenu.staffTab.click();
         cy.wait(1000);
+        /*
+    -------------
+      WHEN
+    -------------
+    */
+        // Volver a dar clic en el usuario Ghost (suspendido)
+        staffSection.ghostStaffMember.click();
+        cy.wait(1000);
+        // Clic en la lista desplegable de ajustes.
+        staffSection.staffProfileConfiguration.click({force: true});
+        // Quitar suspensión de usuario
+        staffSection.ClickInUnSuspendStaffMember.click();
+        cy.wait(1000);
+        staffSection.unSuspendStaffMember.click();
     })
 })

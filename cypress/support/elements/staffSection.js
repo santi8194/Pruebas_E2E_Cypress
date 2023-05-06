@@ -11,4 +11,10 @@ export default class StaffSection {
     get suspendStaffMember() {
         return cy.get("button").contains("Suspend");
     }
+    get ClickInUnSuspendStaffMember() {
+        return cy.get("button").contains("Un-suspend User")
+    }
+    get unSuspendStaffMember() {
+        return cy.get("button").contains("Un-suspend");
+    }
 }
