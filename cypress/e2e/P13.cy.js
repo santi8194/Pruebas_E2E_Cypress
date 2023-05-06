@@ -43,34 +43,26 @@ describe("Eliminar un tag y validación de la eliminación del tag.", () => {
     adminMenu.tagTab.click();
     tagSection.tagInList(title).click();
     cy.wait(2000);
-    cy.get("button").contains("Delete tag").click();
-    //tagSection.editorDeleteTagButton.click();   
+
+    tagSection.editorDeletePostButton.click();
+    cy.wait(2000);
+    tagSection.modalDeleteButton.click();    
     cy.wait(1000);
-    //tagSection.modalDeleteTagButton.click();
-    cy.wait(3000);    
-
-    // Edita el titulo
-
 
     /* 
     -------------
       THEN
     -------------
     */
-    // Verifica que el tag actualizado aparezca en el listado de tags
-
-    // Cargar la URL en el explorador
+    // Verifica el tag no exista y se tenga un page not found
     adminMenu.tagTab.click();
     let url;
-    cy.url().then(($url) => {
-        url = $url;
-        cy.log(`La URL actual es: ${url}`);
-        const newUrl = `${url}/${title}${slug}`;
-        cy.log(`La nueva URL es: ${newUrl}`);
-        cy.visit(newUrl);
-        });
+    cy.url().then(($url) => {url = $url;cy.log(`La URL actual es: ${url}`);
+                              const newUrl = `${url}/${title}${slug}`;
+                              cy.log(`La nueva URL es: ${newUrl}`);
+                              cy.visit(newUrl);});
 
     cy.wait(5000);
-
+    // Cargar la URL en el explorador
   });
 });

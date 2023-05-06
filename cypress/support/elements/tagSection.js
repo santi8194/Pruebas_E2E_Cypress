@@ -23,10 +23,17 @@ export default class TagSection {
       return cy.get("button").contains("Delete tag");
     }
   
-    get modalDeleteTagButton() {
-      return cy.get("button.gh-btn-red").contains("Delete", {force: true});
+    get editorDeletePostButton() {
+      return cy.get("button").contains("Delete tag");
     }
   
+    get modalDeleteButton() {
+      //return cy.get('button:contains("Delete")')
+      return cy.get('.modal-content button.gh-btn-red', {force : true})
+
+      //return cy.get("button.gh-btn-red").contains("Delete", {force: true});
+    }
+
 
     tagInList(title) {
         return cy
