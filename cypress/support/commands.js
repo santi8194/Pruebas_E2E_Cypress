@@ -9,6 +9,9 @@ const loginPage = new LoginPage();
 
 Cypress.Commands.add("login", () => {
   cy.visit(baseUrl);
-  loginPage.login(username, password);
+  const usernameInput = loginPage.usernameInput
+  if (usernameInput) {
+    loginPage.login(username, password);
+  }
   cy.wait(1000);
 });
