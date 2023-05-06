@@ -15,5 +15,8 @@ export default class AdminMenu {
     return cy.get("a").contains("Tags");
   }
 
+  get designTab() {
+    return cy.get("a").contains("Design");
+  }
 
 }
