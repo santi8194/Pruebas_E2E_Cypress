@@ -1,0 +1,11 @@
+
+version: '3'
+services:
+  ghost-service:
+    image: ghost:3.41.1-alpine
+    container_name: testing-ghost
+    environment:
+      - NODE_ENV=development
+      - url=http://localhost:2368
+    ports:
+      - "2368:2368"
