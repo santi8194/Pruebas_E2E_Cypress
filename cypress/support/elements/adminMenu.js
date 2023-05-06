@@ -19,4 +19,5 @@ export default class AdminMenu {
     return cy.get("a").contains("Design");
   }
 
+
 }
