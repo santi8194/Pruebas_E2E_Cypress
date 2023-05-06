@@ -29,4 +29,9 @@ export default class StaffSection {
     get saveChanges() {
         return cy.get('span').contains('Save');
     }
+    get verifyChangedRole() {
+        return cy
+            .get('select#new-user-role')
+            .should('have.value','6456a45668823200017f49d1' );
+    }
 }

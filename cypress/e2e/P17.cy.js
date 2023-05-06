@@ -26,7 +26,16 @@ describe("Cambiar rol de usuario", () => {
     */
         // Dar clic en el desplegable de Roles y seleccionar 'Contributor'
         staffSection.obtainRoleOptions.select('Contributor');
+        cy.wait(1000)
         // Guardar Cambios
         staffSection.saveChanges.click();
+        /*
+    -------------
+      THEN
+    -------------
+    */
+        // Verificar el cambio del rol
+        cy.wait(1000)
+        staffSection.verifyChangedRole;
     })
 })
