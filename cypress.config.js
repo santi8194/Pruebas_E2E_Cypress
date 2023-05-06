@@ -6,6 +6,7 @@ module.exports = defineConfig({
     env: {
       username: "username",
       password: "password",
+      userghost: "ghost-author@example.com",
     },
     setupNodeEvents(on, config) {
       // implement node event listeners here
