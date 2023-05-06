@@ -1,7 +1,24 @@
 # Pruebas E2E en Cypress
 
-## Pre-requisitos:
+## Pre-requisitos y pasos previos:
 - Node.js v14.18.0
+- Tener *ghost* corriendo en el puerto 2368, se puede ejecutar el archivo *docker-compose.yml* provisto en este repositorio para tal propósito.
+- Tener un perfil creado en *ghost* con permisos de administrador.
+- En el archivo *cypress.config.js* se deben especificar el usuario y la contraseña del perfil en el que se correrán las pruebas, por ejemplo:
+    ~~~
+      const { defineConfig } = require("cypress");
+
+      module.exports = defineConfig({
+          e2e: {
+              baseUrl: "http://localhost:2368/ghost/",
+              env: {
+                  username: "c.ramirezr2@uniandes.edu.co",
+                  password: "CarlosNancy98",
+               },
+              ...
+           },
+      });
+    ~~~
 
 ## Pasos para ejecutar los scripts
 1. Clonar o descargar el repositorio.
