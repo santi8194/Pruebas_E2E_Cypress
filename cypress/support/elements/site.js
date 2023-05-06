@@ -11,6 +11,10 @@ export default class Site {
     return cy.get("section.post-full-content");
   }
 
+  get postContent() {
+    return cy.get("section.post-full-content");
+  }
+
   get page404() {
     return cy.get("h1").contains("404");
   }
