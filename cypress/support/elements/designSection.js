@@ -1,6 +1,6 @@
 export default class DesignSection {
     get labelInput() {
-        return cy.get('input[placeholder="Label"][id="ember100"]');
+        return cy.get('input[placeholder="Label"]').eq(-2);
     }
     get urlInput() {
         return cy.get("input[id='ember102']");
@@ -8,21 +8,18 @@ export default class DesignSection {
     get addButton() {
         return cy.get("button").contains("Add");
     }
-    createLink(label, url) {
+    createLink(label) {
         this.labelInput.type(label);
-        this.urlInput.type(url);
         this.addButton.click({force: true});
     }
     get saveButton() {
         return cy.get("button").contains("Save");
     }
     get verifyNewLabel() {
-        return cy
-            .get("input[id='ember159']")
-            .should('exist');
-    }
-    get verifyNewUrl() {
-        return cy.get("input[id='ember161']").should('exist');
+        return cy.get('input[placeholder="Label"]')
+            .should(($inputs) => {
+                expect($inputs.toArray().some((input) => input.value === 'AnotherHome')).to.be.true;
+            });
     }
     get labelToChange() {
         return cy.get('input[placeholder="Label"][id="ember89"]');
