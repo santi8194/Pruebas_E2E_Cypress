@@ -4,6 +4,7 @@ import { faker } from "@faker-js/faker";
 
 const adminMenu = new AdminMenu();
 const designSection = new DesignSection();
+const labelValue = faker.word.noun();
 const newValue = faker.word.noun();
 
 describe("Editar únicamente el label de un link y verificar el cambio.", () => {
@@ -17,9 +18,21 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
     // Autenticar usuario
     cy.login();
     cy.wait(1000);
-    // Design Ir a la pestaña Design
+
+    // Ir a la pestaña Design
     adminMenu.designTab.click();
     cy.wait(1000);
+
+    // Crear link a editar
+    designSection.createLink(labelValue);
+    cy.wait(1000);
+
+    // Guardar cambios
+    designSection.saveButton.click();
+    cy.wait(2000);
+
+    // Recargar settings
+    cy.reload();
 
     /*
 		-------------
@@ -27,8 +40,8 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
 		-------------
 		*/
 
-    // Editar el label del primer link
-    designSection.editFirstLabel(newValue);
+    // Editar el label creado
+    designSection.editLastLabel(newValue);
     designSection.saveButton.click();
     cy.wait(1000);
 
@@ -44,7 +57,9 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
     // Verificar los cambios
     designSection.navigationLabels.then((inputs) => {
       cy.wait(500);
-      cy.wrap(inputs[0]).invoke("val").should("eq", newValue);
+      cy.wrap(inputs[inputs.length - 2])
+        .invoke("val")
+        .should("eq", newValue);
     });
   });
 });
