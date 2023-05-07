@@ -30,6 +30,8 @@ export default class DesignSection {
     editLabel(addedName) {
         this.labelToChange.type(addedName);
     }
-    
+    get editedLabel() {
+        return cy.get('input[placeholder="Label"][id="ember140"]');
+    }
     
 }

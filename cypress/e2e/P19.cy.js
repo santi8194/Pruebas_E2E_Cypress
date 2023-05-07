@@ -34,5 +34,9 @@ THEN
 -------------
 */
         //Verificar los cambios
+        designSection.editedLabel.invoke('val')
+        .then((inputValue) => {
+                expect(inputValue).to.equal(editResult);
+        })
     })
 })
