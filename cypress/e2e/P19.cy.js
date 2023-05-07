@@ -15,7 +15,7 @@ GIVEN
 */
         // Autenticar usuario
         cy.login();
-        cy.wait(10000);
+        cy.wait(1000);
         // Design Ir a la pestaña Design
         adminMenu.designTab.click();
         cy.wait(1000);
@@ -27,16 +27,13 @@ WHEN
         // Editar Link the autor
        designSection.editLabel(addedname);
        designSection.saveButton.click();
-       cy.wait(10000);
+       cy.wait(1000);
         /*
 -------------
 THEN
 -------------
 */
         //Verificar los cambios
-        designSection.editedLabel.invoke('val')
-        .then((inputValue) => {
-                expect(inputValue).to.equal(editResult);
-        })
+        designSection.labelToChange.should('have.value', editResult);
     })
 })

@@ -2,9 +2,6 @@ export default class DesignSection {
     get labelInput() {
         return cy.get('input[placeholder="Label"]').eq(-2);
     }
-    get urlInput() {
-        return cy.get("input[id='ember102']");
-    }
     get addButton() {
         return cy.get("button").contains("Add");
     }
@@ -22,7 +19,8 @@ export default class DesignSection {
             });
     }
     get labelToChange() {
-        return cy.get('input[placeholder="Label"][id="ember89"]');
+        return cy.get('input[placeholder="Label"]').eq(2);
+
     }
     editLabel(addedName) {
         this.labelToChange.type(addedName);
