@@ -33,5 +33,13 @@ export default class DesignSection {
     get editedLabel() {
         return cy.get('input[placeholder="Label"][id="ember140"]');
     }
-    
+    get clickHelpDeleteButton() {
+       return cy
+           .get('button')
+           .filter(':contains("Delete")')
+           .last()
+           .then(($button) => {
+               cy.wrap($button).click();
+           })
+    }
 }
