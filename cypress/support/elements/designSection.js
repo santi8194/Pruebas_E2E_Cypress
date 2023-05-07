@@ -24,4 +24,14 @@ export default class DesignSection {
     get verifyNewUrl() {
         return cy.get("input[id='ember161']").should('exist');
     }
+    get labelToChange() {
+        return cy.get('input[placeholder="Label"][id="ember89"]');
+    }
+    editLabel(addedName) {
+        this.labelToChange.type(addedName);
+    }
+    get editedLabel() {
+        return cy.get('input[placeholder="Label"][id="ember140"]');
+    }
+    
 }
