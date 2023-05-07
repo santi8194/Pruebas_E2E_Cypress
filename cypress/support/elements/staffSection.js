@@ -30,9 +30,8 @@ export default class StaffSection {
         return cy.get('span').contains('Save');
     }
     get verifyChangedRole() {
-        return cy
-            .get('select#new-user-role')
-            .should('have.value','6456a45668823200017f49d1' );
+        return cy.get('#new-user-role')
+            .should('contain', 'Contributor');
     }
 
     get editorContainerPass() {
