@@ -23,10 +23,12 @@ export default class DesignSection {
     return cy.get("#settings-navigation input[placeholder='Label']");
   }
 
-  editFirstLabel(value) {
+  editLastLabel(newValue) {
     this.navigationLabels.then((inputs) => {
       cy.wait(500);
-      cy.wrap(inputs[0]).invoke("val", "").type(value);
+      cy.wrap(inputs[inputs.length - 2])
+        .invoke("val", "")
+        .type(newValue);
     });
   }
 
