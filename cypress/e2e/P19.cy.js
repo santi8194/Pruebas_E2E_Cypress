@@ -1,39 +1,44 @@
 import AdminMenu from "../support/elements/adminMenu";
 import DesignSection from "../support/elements/designSection";
+import { faker } from "@faker-js/faker";
 
 const adminMenu = new AdminMenu();
 const designSection = new DesignSection();
-const addedname = 'Editado';
-const editResult = 'Author' + addedname;
+const newValue = faker.word.noun();
 
-describe('Editar link de navegación', () => {
-    it('Edita el link con el label author', () => {
-        /*
+describe("Editar únicamente el label de un link y verificar el cambio.", () => {
+  it("Editar únicamente el label de un link y verificar el cambio.", () => {
+    /*
 -------------
 GIVEN
 -------------
 */
-        // Autenticar usuario
-        cy.login();
-        cy.wait(1000);
-        // Design Ir a la pestaña Design
-        adminMenu.designTab.click();
-        cy.wait(1000);
-        /*
+    // Autenticar usuario
+    cy.login();
+    cy.wait(1000);
+    // Design Ir a la pestaña Design
+    adminMenu.designTab.click();
+    cy.wait(1000);
+    /*
 -------------
 WHEN
 -------------
 */
-        // Editar Link the autor
-       designSection.editLabel(addedname);
-       designSection.saveButton.click();
-       cy.wait(1000);
-        /*
+    // Editar el label del primer link
+    designSection.editFirstLabel(newValue);
+    designSection.saveButton.click();
+    cy.wait(1000);
+    /*
 -------------
 THEN
 -------------
 */
-        //Verificar los cambios
-        designSection.labelToChange.should('have.value', editResult);
-    })
-})
+    // Recargar settings
+    cy.reload();
+    // Verificar los cambios
+    designSection.navigationLabels.then((inputs) => {
+      cy.wait(500);
+      cy.wrap(inputs[0]).invoke("val").should("eq", newValue);
+    });
+  });
+});
