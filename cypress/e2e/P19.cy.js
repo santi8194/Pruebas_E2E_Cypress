@@ -44,13 +44,16 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
     designSection.editLastLabel(newValue);
     designSection.saveButton.click();
     cy.wait(1000);
+
     /*
--------------
-THEN
--------------
-*/
+		-------------
+		THEN
+		-------------
+		*/
+
     // Recargar settings
     cy.reload();
+
     // Verificar los cambios
     designSection.navigationLabels.then((inputs) => {
       cy.wait(500);

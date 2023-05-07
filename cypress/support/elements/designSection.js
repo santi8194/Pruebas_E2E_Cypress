@@ -32,7 +32,7 @@ export default class DesignSection {
     });
   }
 
-  get clickHelpDeleteButton() {
+  get clickLastLabelDeleteButton() {
     return cy
       .get("button")
       .filter(':contains("Delete")')
@@ -41,12 +41,13 @@ export default class DesignSection {
         cy.wrap($button).click();
       });
   }
-  get validateDeletedLink() {
-    return cy.get('input[placeholder="Label"]').each(($input) => {
+
+  validateDeletedLink(labelValue) {
+    cy.get('input[placeholder="Label"]').each(($input) => {
       cy.wrap($input)
         .invoke("val")
         .then((value) => {
-          expect(value).to.not.equal("Help");
+          expect(value).to.not.equal(labelValue);
         });
     });
   }
