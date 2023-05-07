@@ -9,32 +9,38 @@ const newValue = faker.word.noun();
 describe("Editar únicamente el label de un link y verificar el cambio.", () => {
   it("Editar únicamente el label de un link y verificar el cambio.", () => {
     /*
--------------
-GIVEN
--------------
-*/
+		-------------
+		GIVEN
+		-------------
+		*/
+
     // Autenticar usuario
     cy.login();
     cy.wait(1000);
     // Design Ir a la pestaña Design
     adminMenu.designTab.click();
     cy.wait(1000);
+
     /*
--------------
-WHEN
--------------
-*/
+		-------------
+		WHEN
+		-------------
+		*/
+
     // Editar el label del primer link
     designSection.editFirstLabel(newValue);
     designSection.saveButton.click();
     cy.wait(1000);
+
     /*
--------------
-THEN
--------------
-*/
+		-------------
+		THEN
+		-------------
+		*/
+
     // Recargar settings
     cy.reload();
+
     // Verificar los cambios
     designSection.navigationLabels.then((inputs) => {
       cy.wait(500);
