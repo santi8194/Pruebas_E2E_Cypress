@@ -42,4 +42,13 @@ export default class DesignSection {
                cy.wrap($button).click();
            })
     }
+    get validateDeletedLink() {
+        return cy.get('input[placeholder="Label"]').each(($input) => {
+            cy.wrap($input)
+                .invoke('val')
+                .then((value) => {
+                    expect(value).to.not.equal('Help');
+                })
+        })
+    }
 }

@@ -26,6 +26,12 @@ WHEN
         // Obtener el valor del ultimo input
         designSection.clickHelpDeleteButton;
         designSection.saveButton.click();
-
+        /*
+-------------
+THEN
+-------------
+*/
+        // Validar que se halla eliminado lik de Help
+        designSection.validateDeletedLink;
     })
 })
