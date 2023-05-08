@@ -8,8 +8,8 @@ const pageSection = new PageSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Edición unicamente del título de una página existente y validación de cambios en la aplicación.", () => {
-  it("Edición unicamente del título de una página existente y validación de cambios en la aplicación.", () => {
+describe("Edición unicamente del cuerpo de una página existente y validación de cambios en la aplicación.", () => {
+  it("Edición unicamente del cuerpo de una página existente y validación de cambios en la aplicación.", () => {
     /* 
     -------------
       GIVEN
