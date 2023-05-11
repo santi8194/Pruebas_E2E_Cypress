@@ -1,10 +1,15 @@
+const version = Cypress.env("versionGhost");
 export default class PageSection {
   get newPageButton() {
     return cy.get("a").contains("New page");
   }
 
   get editorContainerTitle() {
-    return cy.get("textarea[placeholder='Page Title']");
+    if (version === "4.44") {
+      return cy.get("textarea[placeholder='Page title']");
+    } else {
+      return cy.get("textarea[placeholder='Page Title']");
+    }
   }
 
   get editorContainerBody() {
