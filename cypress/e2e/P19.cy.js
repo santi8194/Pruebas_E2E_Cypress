@@ -20,18 +20,26 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
     cy.wait(1000);
 
     // Ir a la pestaña Design
+    cy.screenshot('P19.1 Login v3.41.1');
+    cy.wait(10000);
     adminMenu.designTab.click();
     cy.wait(1000);
 
     // Crear link a editar
+    cy.screenshot('P19.2 Click_Design v3.41.1');
+    cy.wait(10000);
     designSection.createLink(labelValue);
     cy.wait(1000);
 
     // Guardar cambios
+    cy.screenshot('P19.3 Create_Link v3.41.1');
+    cy.wait(10000);
     designSection.saveButton.click();
     cy.wait(2000);
 
     // Recargar settings
+    cy.screenshot('P19.4 Save_Changes v3.41.1');
+    cy.wait(10000);
     cy.reload();
 
     /*
@@ -41,7 +49,11 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
 		*/
 
     // Editar el label creado
+    cy.screenshot('P19.5 Reload v3.41.1');
+    cy.wait(10000);
     designSection.editLastLabel(newValue);
+    cy.screenshot('P19.6 Edit_Last_Label v3.41.1');
+    cy.wait(10000);
     designSection.saveButton.click();
     cy.wait(1000);
 
@@ -52,14 +64,19 @@ describe("Editar únicamente el label de un link y verificar el cambio.", () => 
 		*/
 
     // Recargar settings
+    cy.screenshot('P19.7 Save_Changes v3.41.1');
+    cy.wait(10000);
     cy.reload();
 
     // Verificar los cambios
+    cy.screenshot('P19.8 Reload v3.41.1');
     designSection.navigationLabels.then((inputs) => {
       cy.wait(500);
       cy.wrap(inputs[inputs.length - 2])
         .invoke("val")
         .should("eq", newValue);
     });
+    cy.screenshot('P19.9 Verify_Changes v3.41.1');
+    cy.wait(10000);
   });
 });
