@@ -54,15 +54,16 @@ describe("Publicación de una página nueva y validación de disponibilidad en l
     pageSection.goBackToPagesSection.click();
     cy.screenshot(`P06.5 Ir a la lista de páginas v${version}`);
     pageSection.pageInList(title).click();
+    cy.screenshot(`P06.6 Seleccionar la página v${version}`);
 
     // Verifica que la página aparezca visible en el sitio
     pageSection.editorSettingsButton.click();
-    cy.screenshot(`P06.5 Abrir settings v${version}`);
+    cy.screenshot(`P06.7 Abrir settings v${version}`);
     pageSection.editorViewPage.invoke("attr", "href").then((href) => {
       cy.visit(href);
     });
     cy.wait(1000);
     site.pageTitle.contains(title);
-    cy.screenshot(`P06.6 Página visible en sitio v${version}`);
+    cy.screenshot(`P06.8 Página visible en sitio v${version}`);
   });
 });
