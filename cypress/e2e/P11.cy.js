@@ -16,13 +16,15 @@ describe("Creación de un tag y validación de la creación del tag.", () => {
     -------------
     */
 
-    // Autentica un usuario que puede crear tags
+    // Autentica un usuario que puede crear tags    
     cy.login();
+    cy.wait(1000);
+    cy.screenshot("16.1 Login v3.41")
 
     // Va a la pestaña Tags
     adminMenu.tagTab.click();
     cy.wait(1000);
-
+    cy.screenshot("16.2 Click Tag v3.41")
     /* 
     -------------
       WHEN
@@ -35,9 +37,13 @@ describe("Creación de un tag y validación de la creación del tag.", () => {
     const content = faker.lorem.paragraphs(1);
 
     tagSection.createTag(title, slug , content);
+    cy.wait(1000);
+    cy.screenshot("16.3 Agregar info tag v3.41")
 
     // Publica el tag
     tagSection.saveTag.click();
+    cy.wait(1000);
+    cy.screenshot("16.4 Guarda tag v3.41")
     /* 
     -------------
       THEN
@@ -47,7 +53,9 @@ describe("Creación de un tag y validación de la creación del tag.", () => {
     // Verifica que el tag aparezca en el listado de tags
     adminMenu.tagTab.click();
     cy.wait(1000);
+    cy.screenshot("16.5 Click Tag v3.41")
     tagSection.tagInList(title).click();
+    cy.screenshot("16.6 Busca Tag v3.41")
     cy.wait(2000);
   });
 });
