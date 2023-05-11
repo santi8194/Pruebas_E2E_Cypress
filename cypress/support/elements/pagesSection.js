@@ -5,11 +5,11 @@ export default class PageSection {
   }
 
   get editorContainerTitle() {
-    if (version === "4.44") {
-      return cy.get("textarea[placeholder='Page title']");
-    } else {
-      return cy.get("textarea[placeholder='Page Title']");
-    }
+    // if (version === "4.44") {
+    //   return cy.get("textarea[placeholder='Page title']");
+    // } else {
+    return cy.get("textarea[placeholder='Page Title']");
+    // }
   }
 
   get editorContainerBody() {
