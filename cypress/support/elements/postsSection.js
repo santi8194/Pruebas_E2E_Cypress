@@ -4,7 +4,7 @@ export default class PostSection {
   }
 
   get editorContainerTitle() {
-    return cy.get("textarea[placeholder='Post Title']");
+    return cy.get("textarea[placeholder='Post title']");
   }
 
   get editorContainerBody() {
@@ -63,6 +63,8 @@ export default class PostSection {
 
   publishPost() {
     this.editorPublishDropdown.click();
+    this.editorPublishButton.click();
+    cy.wait(3000);
     this.editorPublishButton.click();
     cy.wait(3000);
   }

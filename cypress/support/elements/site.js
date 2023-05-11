@@ -4,7 +4,7 @@ export default class Site {
   }
 
   get postTitle() {
-    return cy.get("h1.post-full-title");
+    return cy.get("h1.article-title");
   }
 
   get pageContent() {
@@ -12,7 +12,7 @@ export default class Site {
   }
 
   get postContent() {
-    return cy.get("section.post-full-content");
+    return cy.get("section.gh-content");
   }
 
   get page404() {
