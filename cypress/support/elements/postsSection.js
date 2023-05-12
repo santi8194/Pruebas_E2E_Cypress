@@ -1,10 +1,16 @@
+const version = Cypress.env("versionGhost")
+
 export default class PostSection {
   get newPostButton() {
     return cy.get("a").contains("New post");
   }
 
   get editorContainerTitle() {
-    return cy.get("textarea[placeholder='Post title']");
+    if (version === "4.44") {
+      return cy.get("textarea[placeholder='Post title']");
+    } else {
+      return cy.get("textarea[placeholder='Post Title']");
+    }
   }
 
   get editorContainerBody() {
@@ -65,8 +71,10 @@ export default class PostSection {
     this.editorPublishDropdown.click();
     this.editorPublishButton.click();
     cy.wait(3000);
-    this.editorPublishButton.click();
-    cy.wait(3000);
+    if (version === "4.44") {
+      this.editorPublishButton.click();
+      cy.wait(3000);
+    }
   }
 
   createPost(title, content) {
