@@ -9,7 +9,11 @@ export default class Site {
   }
 
   get postTitle() {
-    return cy.get("h1.post-full-title");
+    if (version === "4.44") {
+      return cy.get("h1.article-title");
+    } else {
+      return cy.get("h1.post-full-title");
+    }
   }
 
   get pageContent() {
@@ -21,7 +25,11 @@ export default class Site {
   }
 
   get postContent() {
-    return cy.get("section.post-full-content");
+    if (version === "4.44") {
+      return cy.get("section.gh-content");
+    } else {
+      return cy.get("section.post-full-content");
+    }
   }
 
   get page404() {
