@@ -4,12 +4,12 @@ export default class Site {
     if (version === "4.44.0") {
       return cy.get("h1.article-title");
     } else {
-      return cy.get("h1.post-full-title");
+    return cy.get("h1.post-full-title");
     }
   }
 
   get postTitle() {
-    if (version === "4.44") {
+    if (version === "4.44.0") {
       return cy.get("h1.article-title");
     } else {
       return cy.get("h1.post-full-title");
@@ -20,12 +20,12 @@ export default class Site {
     if (version === "4.44.0") {
       return cy.get("section.gh-content > p");
     } else {
-      return cy.get("section.post-full-content");
+    return cy.get("section.post-full-content");
     }
   }
 
   get postContent() {
-    if (version === "4.44") {
+    if (version === "4.44.0") {
       return cy.get("section.gh-content");
     } else {
       return cy.get("section.post-full-content");

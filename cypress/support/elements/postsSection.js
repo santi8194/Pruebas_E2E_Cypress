@@ -6,7 +6,7 @@ export default class PostSection {
   }
 
   get editorContainerTitle() {
-    if (version === "4.44") {
+    if (version === "4.44.0") {
       return cy.get("textarea[placeholder='Post title']");
     } else {
       return cy.get("textarea[placeholder='Post Title']");
@@ -71,7 +71,7 @@ export default class PostSection {
     this.editorPublishDropdown.click();
     this.editorPublishButton.click();
     cy.wait(3000);
-    if (version === "4.44") {
+    if (version === "4.44.0") {
       this.editorPublishButton.click();
       cy.wait(3000);
     }

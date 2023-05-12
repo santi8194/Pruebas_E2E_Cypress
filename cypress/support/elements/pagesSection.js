@@ -8,7 +8,7 @@ export default class PageSection {
     if (version === "4.44.0") {
       return cy.get("textarea[placeholder='Page title']");
     } else {
-      return cy.get("textarea[placeholder='Page Title']");
+    return cy.get("textarea[placeholder='Page Title']");
     }
   }
 
