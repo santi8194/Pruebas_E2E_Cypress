@@ -13,29 +13,29 @@ describe("Editar usuario para quitar suspensión.", () => {
     */
         // Autenticar usuario
         cy.login();
-        cy.screenshot('P16.1 Login v3.41.1');
+        cy.screenshot('P16.1 Login v4.44.0');
         // Ir a la pestaña Staff
         adminMenu.staffTab.click();
-        cy.screenshot('P16.2 Click_Staff v3.41.1');
+        cy.screenshot('P16.2 Click_Staff v4.44.0');
         cy.wait(1000);
 
         // Clic en usuario Ghost
         staffSection.ghostStaffMember.click();
-        cy.screenshot('P16.3 Click_Ghost v3.41.1');
+        cy.screenshot('P16.3 Click_Ghost v4.44.0');
         cy.wait(1000);
         // Clic en lista desplegable de ajustes
         staffSection.staffProfileConfiguration.click({force: true});
         cy.wait(500);
-        cy.screenshot('P16.4 Click_Configuration v3.41.1');
+        cy.screenshot('P16.4 Click_Configuration v4.44.0');
         // Suspender usuario
         staffSection.clickInSuspendStaffMember.click();
         cy.wait(1000);
-        cy.screenshot('P16.5 Click_Suspend v3.41.1');
+        cy.screenshot('P16.5 Click_Suspend v4.44.0');
         staffSection.suspendStaffMember.click();
-        cy.screenshot('P16.6 Suspend_Member v3.41.1');
+        cy.screenshot('P16.6 Suspend_Member v4.44.0');
         cy.wait(1000);
         // Volver a la pestaña Staff
-        cy.screenshot('P16.7 Click_Staff v3.41.1');
+        cy.screenshot('P16.7 Click_Staff v4.44.0');
         adminMenu.staffTab.click();
         cy.wait(1000);
 
