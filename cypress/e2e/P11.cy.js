@@ -19,12 +19,12 @@ describe("Creación de un tag y validación de la creación del tag.", () => {
     // Autentica un usuario que puede crear tags    
     cy.login();
     cy.wait(1000);
-    cy.screenshot("11.1 Login v3.41")
+    cy.screenshot("P11.1 Login v4.44.0")
 
     // Va a la pestaña Tags
     adminMenu.tagTab.click();
     cy.wait(1000);
-    cy.screenshot("11.2 Click Tag v3.41")
+    cy.screenshot("P11.2 Click Tag v4.44.0")
     /* 
     -------------
       WHEN
@@ -38,12 +38,12 @@ describe("Creación de un tag y validación de la creación del tag.", () => {
 
     tagSection.createTag(title, slug , content);
     cy.wait(1000);
-    cy.screenshot("11.3 Agregar info tag v3.41")
+    cy.screenshot("P11.3 Agregar info tag v4.44.0")
 
     // Publica el tag
     tagSection.saveTag.click();
     cy.wait(1000);
-    cy.screenshot("11.4 Guarda tag v3.41")
+    cy.screenshot("P11.4 Guarda tag v4.44.0")
     /* 
     -------------
       THEN
@@ -53,9 +53,9 @@ describe("Creación de un tag y validación de la creación del tag.", () => {
     // Verifica que el tag aparezca en el listado de tags
     adminMenu.tagTab.click();
     cy.wait(1000);
-    cy.screenshot("11.5 Click Tag v3.41")
+    cy.screenshot("P11.5 Click Tag v4.44.0")
     tagSection.tagInList(title).click();
-    cy.screenshot("11.6 Busca Tag v3.41")
+    cy.screenshot("P11.6 Busca Tag v4.44.0")
     cy.wait(2000);
   });
 });
