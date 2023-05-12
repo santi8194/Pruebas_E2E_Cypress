@@ -1,0 +1,10 @@
+version: '3'
+services:
+  ghost-service:
+    image: ghost:4.44.0-alpine
+    container_name: ghost_4.44.0
+    environment:
+      - NODE_ENV=development
+      - url=http://localhost:3002
+    ports:
+      - "3002:2368"
