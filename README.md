@@ -33,6 +33,7 @@
   const { defineConfig } = require("cypress");
 
   module.exports = defineConfig({
+        ...
           specPattern: "cypress/e2e_10_scenarios/*.cy.js",
           screenshotsFolder: "cypress/screenshots_10_scenarios",
        },
@@ -46,7 +47,7 @@ Adicionalmente poner información de la versión que se va a correr. <br/>
 5. Oprimir el botón **Start E2E Testing in Chrome**.
 6. Aparecerá un navegador con los scripts disponibles para ejecutar:
 ![image](https://github.com/santi8194/Pruebas_VRT_Cypress/assets/17149432/31a432e9-6d50-4189-92b0-751b8e147063)
-7. Escoger el script de interés, esto empezará a correr la prueba  a generar los screenshots.
+7. Escoger el script de interés, esto empezará a correr la prueba y a generar los screenshots.
 
 
 **Nota:** Los nombres de los scripts corresponden con el identificador de cada escenario de prueba. Para conocer qué identificador corresponde a cada escenario, por favor consulte el [siguiente enlace](https://github.com/Molvilada/Pruebas_E2E_Grupo_17/wiki/Escenarios-de-prueba).
@@ -60,7 +61,7 @@ Adicionalmente poner información de la versión que se va a correr. <br/>
   const { defineConfig } = require("cypress");
 
   module.exports = defineConfig({
-          ...
+        ...
           specPattern: "cypress/e2e/*.cy.js",
           screenshotsFolder: "cypress/screenshots",
        },
@@ -72,7 +73,7 @@ Adicionalmente poner información de la versión que se va a correr. <br/>
 5. Oprimir el botón **Start E2E Testing in Chrome**.
 6. Aparecerá un navegador con los scripts disponibles para ejecutar:
 ![image](https://user-images.githubusercontent.com/17149432/236364324-ae425d21-29e6-4c9b-bf31-2ced190cc312.png)
-7. Escoger el script de interés, esto empezará a correr la prueba.
+7. Escoger el script de interés, esto empezará a correr la prueba y a generar los screenshots.
 
 
 **Nota:** Los nombres de los scripts corresponden con el identificador de cada escenario de prueba. Para conocer qué identificador corresponde a cada escenario, por favor consulte el [siguiente enlace](https://github.com/Molvilada/Pruebas_E2E_Grupo_17/wiki/Escenarios-de-prueba).
